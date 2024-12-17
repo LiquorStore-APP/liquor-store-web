@@ -1,0 +1,25 @@
+<mat-sidenav-container class="sidenav-container">
+  <!-- Side navigation for mobile -->
+  <mat-sidenav #drawer mode="over" class="sidenav" fixedInViewport>
+    <mat-nav-list>
+      <a mat-list-item href="#" (click)="drawer.toggle()">Home</a>
+      <a mat-list-item href="#" (click)="drawer.toggle()">About</a>
+      <a mat-list-item href="#" (click)="drawer.toggle()">Contact</a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <!-- Main Content -->
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <span>Licoreria</span>
+      <button mat-button [routerLink]="['/inventory']"><mat-icon>inventory</mat-icon> Inventario</button>
+      <button mat-button  [routerLink]="['/catalogue']"><mat-icon>library_books</mat-icon> Catalogo</button>
+      <button mat-button [routerLink]="['/sales']"><mat-icon>store</mat-icon> Ventas</button>
+      <span class="spacer"></span>
+      <button mat-button><mat-icon>add_shopping_cart</mat-icon>Carrtito</button>
+      <button mat-icon-button (click)="drawer.toggle()" class="menu-button">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </mat-toolbar>
+  </mat-sidenav-content>
+</mat-sidenav-container>
