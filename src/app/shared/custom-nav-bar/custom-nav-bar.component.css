@@ -1,0 +1,37 @@
+/* General container */
+/*.sidenav-container {*/
+/*  height: 100vh;*/
+/*}*/
+
+span {
+  margin-right: 10px;
+}
+
+/* Toolbar styling */
+mat-toolbar {
+  display: flex;
+}
+
+button[mat-icon-button] {
+  display: none;
+}
+
+sidenav {
+  display: none;
+}
+
+/* Hide buttons on smaller screens */
+@media (max-width: 768px) {
+  button[mat-button] {
+    display: none;
+  }
+
+  button[mat-icon-button] {
+    display: block;
+  }
+}
+
+/* Show content */
+.content {
+  padding: 16px;
+}

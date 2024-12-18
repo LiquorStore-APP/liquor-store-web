@@ -1,0 +1,36 @@
+/* product-card.component.css */
+mat-card {
+  width: 300px;
+  margin: 16px;
+}
+
+mat-card-title {
+  margin-bottom: 10px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+mat-card-header{
+  display: flex;
+  justify-content: center;
+}
+
+mat-card-subtitle, mat-card-title, p {
+  font-size: 18px;
+  color: white;
+}
+
+mat-card-content {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+button {
+  margin: 4px 0;
+}
