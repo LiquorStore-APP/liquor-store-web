@@ -13,4 +13,13 @@ export const routes: Routes = [
     path: 'sales',
     loadComponent: () => import('./views/sales/sales.component').then(m => m.SalesComponent),
   },
+  {
+    path: 'inventory/add-product',
+    loadComponent: () => import('./views/product/add-product/add-product.component').then(m => m.AddProductComponent),
+  },
+
+  {
+    path: 'cart',
+    loadComponent: () => import('./views/cart/cart.component').then(m => m.CartComponent),
+  },
 ];

@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
 import {ProductCardComponent} from '../../shared/product-card/product-card.component';
+import {ProductsService} from '../../services/products.service';
+import {NgForOf} from '@angular/common';
 
 @Component({
   selector: 'app-catalogue',
   imports: [
-    ProductCardComponent
+    ProductCardComponent,
+    NgForOf
   ],
   templateUrl: './catalogue.component.html',
   standalone: true,
@@ -16,8 +19,18 @@ export class CatalogueComponent {
     price: 2.00,
     stock: 20,
     cost: 1.70,
-    imageUrl: 'https://miamarket.pe/assets/uploads/64a4b3f824e86eaa7df34d853e6bfedf.jpg'
+    imageUrl: 'images/test.jpg'
   };
+
+  products: any[] = [];
+
+
+  constructor(private productsService: ProductsService) {
+    this.productsService.getProducts().subscribe(products => {
+      console.log(products);
+      this.products = products;
+    });
+  }
 
   onAddToCart(amount: number) {
     console.log(`Agregar ${amount} al carrito`);

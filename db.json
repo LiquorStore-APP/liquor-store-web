@@ -1,0 +1,245 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "nombreProducto": "Laptop",
+      "costoProducto": 1200.5,
+      "precioProducto": 1500,
+      "idCategoriaProductos": 1,
+      "stockProducto": 50,
+      "rutaimagenProducto": "test.jpg"
+    },
+    {
+      "id": 2,
+      "nombreProducto": "Mouse Inalámbrico",
+      "costoProducto": 15,
+      "precioProducto": 25,
+      "idCategoriaProductos": 2,
+      "stockProducto": 200,
+      "rutaimagenProducto": "mouse_inalambrico.jpg"
+    },
+    {
+      "id": 3,
+      "nombreProducto": "Teclado Mecánico",
+      "costoProducto": 45.99,
+      "precioProducto": 69.99,
+      "idCategoriaProductos": 2,
+      "stockProducto": 150,
+      "rutaimagenProducto": "teclado_mecanico.jpg"
+    },
+    {
+      "id": 4,
+      "nombreProducto": "Monitor LED 24 Pulgadas",
+      "costoProducto": 120,
+      "precioProducto": 160,
+      "idCategoriaProductos": 3,
+      "stockProducto": 70,
+      "rutaimagenProducto": "monitor_led_24.jpg"
+    },
+    {
+      "id": 5,
+      "nombreProducto": "Disco Duro SSD 1TB",
+      "costoProducto": 80,
+      "precioProducto": 110,
+      "idCategoriaProductos": 4,
+      "stockProducto": 90,
+      "rutaimagenProducto": "ssd_1tb.jpg"
+    },
+    {
+      "id": 6,
+      "nombreProducto": "Impresora Multifunción",
+      "costoProducto": 150,
+      "precioProducto": 210,
+      "idCategoriaProductos": 5,
+      "stockProducto": 30,
+      "rutaimagenProducto": "impresora_multifuncion.jpg"
+    },
+    {
+      "id": 7,
+      "nombreProducto": "Auriculares Gamer",
+      "costoProducto": 35,
+      "precioProducto": 55,
+      "idCategoriaProductos": 6,
+      "stockProducto": 100,
+      "rutaimagenProducto": "auriculares_gamer.jpg"
+    },
+    {
+      "id": 8,
+      "nombreProducto": "Tarjeta Gráfica RTX 3060",
+      "costoProducto": 320,
+      "precioProducto": 450,
+      "idCategoriaProductos": 7,
+      "stockProducto": 20,
+      "rutaimagenProducto": "rtx_3060.jpg"
+    },
+    {
+      "id": 9,
+      "nombreProducto": "Procesador Ryzen 7",
+      "costoProducto": 270,
+      "precioProducto": 350,
+      "idCategoriaProductos": 8,
+      "stockProducto": 40,
+      "rutaimagenProducto": "ryzen_7.jpg"
+    },
+    {
+      "id": 10,
+      "nombreProducto": "Router Wifi 6",
+      "costoProducto": 60,
+      "precioProducto": 85,
+      "idCategoriaProductos": 9,
+      "stockProducto": 120,
+      "rutaimagenProducto": "router_wifi6.jpg"
+    },
+    {
+      "id": 11,
+      "nombreProducto": "Silla Gamer",
+      "costoProducto": 90,
+      "precioProducto": 150,
+      "idCategoriaProductos": 10,
+      "stockProducto": 25,
+      "rutaimagenProducto": "silla_gamer.jpg"
+    },
+    {
+      "id": 12,
+      "nombreProducto": "Tablet 10 Pulgadas",
+      "costoProducto": 200,
+      "precioProducto": 280,
+      "idCategoriaProductos": 11,
+      "stockProducto": 60,
+      "rutaimagenProducto": "tablet_10.jpg"
+    },
+    {
+      "id": 13,
+      "nombreProducto": "Cámara Web HD",
+      "costoProducto": 20,
+      "precioProducto": 35,
+      "idCategoriaProductos": 12,
+      "stockProducto": 80,
+      "rutaimagenProducto": "camara_web_hd.jpg"
+    },
+    {
+      "id": 14,
+      "nombreProducto": "Fuente de Poder 750W",
+      "costoProducto": 55,
+      "precioProducto": 75,
+      "idCategoriaProductos": 13,
+      "stockProducto": 45,
+      "rutaimagenProducto": "fuente_poder_750w.jpg"
+    },
+    {
+      "id": 15,
+      "nombreProducto": "Ventilador RGB para PC",
+      "costoProducto": 10,
+      "precioProducto": 20,
+      "idCategoriaProductos": 14,
+      "stockProducto": 150,
+      "rutaimagenProducto": "ventilador_rgb.jpg"
+    },
+    {
+      "id": 16,
+      "nombreProducto": "Estación de Carga USB",
+      "costoProducto": 25,
+      "precioProducto": 40,
+      "idCategoriaProductos": 15,
+      "stockProducto": 100,
+      "rutaimagenProducto": "estacion_carga_usb.jpg"
+    },
+    {
+      "id": 17,
+      "nombreProducto": "Mochila para Laptop",
+      "costoProducto": 18,
+      "precioProducto": 30,
+      "idCategoriaProductos": 16,
+      "stockProducto": 130,
+      "rutaimagenProducto": "mochila_laptop.jpg"
+    },
+    {
+      "id": 18,
+      "nombreProducto": "Micrófono de Escritorio",
+      "costoProducto": 35,
+      "precioProducto": 50,
+      "idCategoriaProductos": 17,
+      "stockProducto": 70,
+      "rutaimagenProducto": "microfono_escritorio.jpg"
+    },
+    {
+      "id": 19,
+      "nombreProducto": "Altavoces Bluetooth",
+      "costoProducto": 40,
+      "precioProducto": 65,
+      "idCategoriaProductos": 18,
+      "stockProducto": 90,
+      "rutaimagenProducto": "altavoces_bluetooth.jpg"
+    },
+    {
+      "id": 20,
+      "nombreProducto": "Smartwatch Deportivo",
+      "costoProducto": 50,
+      "precioProducto": 75,
+      "idCategoriaProductos": 19,
+      "stockProducto": 110,
+      "rutaimagenProducto": "smartwatch_deportivo.jpg"
+    },
+    {
+      "nombreProducto": "tes",
+      "precioProducto": 1123,
+      "stockProducto": 123,
+      "costoProducto": 123,
+      "rutaimagenProducto": "test",
+      "idCategoriaProductos": 1,
+      "id": 21
+    },
+    {
+      "nombreProducto": "tes",
+      "precioProducto": 1234,
+      "stockProducto": 1234,
+      "costoProducto": 1231,
+      "rutaimagenProducto": "asd",
+      "idCategoriaProductos": 1,
+      "id": 22
+    }
+  ],
+  "posts": [
+    {
+      "id": "1",
+      "title": "a title",
+      "views": 100
+    },
+    {
+      "id": "2",
+      "title": "another title",
+      "views": 200
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "text": "a comment about post 1",
+      "postId": "1"
+    },
+    {
+      "id": "2",
+      "text": "another comment about post 1",
+      "postId": "1"
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "categories": [
+    {
+      "id": 1,
+      "nombreCategoria": "Electrónica"
+    }
+  ],
+  "sales": [
+    {
+      "idVenta": 1,
+      "clienteVenta": "Juan Pérez",
+      "fechaVenta": "2024-12-15T14:30:00",
+      "montoTotalVenta": 2150.00,
+      "utilidadTotalVenta": 300.00,
+      "idMedioPagoVenta": 1
+    }
+  ]
+}

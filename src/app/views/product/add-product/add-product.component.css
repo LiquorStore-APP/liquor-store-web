@@ -1,0 +1,16 @@
+.container {
+  padding: 16px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.mat-form-field {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+button {
+  width: 100%;
+}

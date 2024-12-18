@@ -16,7 +16,7 @@
       <button mat-button  [routerLink]="['/catalogue']"><mat-icon>library_books</mat-icon> Catalogo</button>
       <button mat-button [routerLink]="['/sales']"><mat-icon>store</mat-icon> Ventas</button>
       <span class="spacer"></span>
-      <button mat-button><mat-icon>add_shopping_cart</mat-icon>Carrtito</button>
+      <button mat-button [routerLink]="['/cart']"><mat-icon>add_shopping_cart</mat-icon>Carrito <span *ngIf="cartItemCount > 0" class="cart-count">({{ cartItemCount }})</span></button>
       <button mat-icon-button (click)="drawer.toggle()" class="menu-button">
         <mat-icon>menu</mat-icon>
       </button>

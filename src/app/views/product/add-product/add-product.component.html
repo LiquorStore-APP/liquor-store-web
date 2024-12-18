@@ -1,0 +1,37 @@
+<div class="container">
+  <h2 class="text-center mb-4">Agregar Nuevo Producto</h2>
+
+  <form [formGroup]="addProductForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Nombre</mat-label>
+      <input matInput formControlName="name">
+      <mat-error *ngIf="addProductForm.get('name')?.invalid">Este campo es obligatorio</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Precio (S/)</mat-label>
+      <input matInput type="number" formControlName="price">
+      <mat-error *ngIf="addProductForm.get('price')?.invalid">Ingrese un precio válido</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Costo (S/)</mat-label>
+      <input matInput type="number" formControlName="cost">
+      <mat-error *ngIf="addProductForm.get('cost')?.invalid">Ingrese un costo válido</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Stock</mat-label>
+      <input matInput type="number" formControlName="stock">
+      <mat-error *ngIf="addProductForm.get('stock')?.invalid">Ingrese un stock válido</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>URL de la Imagen</mat-label>
+      <input matInput formControlName="imageUrl">
+      <mat-error *ngIf="addProductForm.get('imageUrl')?.invalid">Este campo es obligatorio</mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="addProductForm.invalid">Agregar Producto</button>
+  </form>
+</div>

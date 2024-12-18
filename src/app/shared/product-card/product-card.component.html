@@ -9,7 +9,7 @@
   <img
     [ngStyle]="{visibility: loading ? 'hidden' : 'visible'}"
     mat-card-image
-    [src]="product?.imageUrl ?? ''"
+    [src]="product?.imageUrl"
     alt="{{ product?.name }}"
     (load)="onImageLoad($event)">
 
