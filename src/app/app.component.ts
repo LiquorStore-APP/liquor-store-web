@@ -11,5 +11,5 @@ import {BrowserModule} from '@angular/platform-browser';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'liquid-store-web';
+  title = 'liquor-store-web';
 }

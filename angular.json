@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "liquid-store-web": {
+    "liquor-store-web": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/liquid-store-web",
+            "outputPath": "dist/liquor-store-web",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -61,10 +61,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "liquid-store-web:build:production"
+              "buildTarget": "liquor-store-web:build:production"
             },
             "development": {
-              "buildTarget": "liquid-store-web:build:development"
+              "buildTarget": "liquor-store-web:build:development"
             }
           },
           "defaultConfiguration": "development"
