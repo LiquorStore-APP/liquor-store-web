@@ -93,7 +93,7 @@ export class CartComponent {
     ).subscribe(
       (sale) => {
         this.notificationsService.openSnackBarWithTime("Venta guardada correctamente.", "Cerrar", 1500);
-        console.log(sale);
+
         // this.cartService.getCart().products.forEach(product => {
         //   this.salesService.addProductToSale(sale.id, product.id, product.quantity).subscribe();
         // });

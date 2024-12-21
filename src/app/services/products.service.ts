@@ -58,9 +58,11 @@ export class ProductsService {
   }
 
   addProduct(newProduct: Product) {
-    console.log(newProduct);
     const newProductRequest = this.mapProductToProductRequest(newProduct);
-    console.log(newProductRequest);
     return this.http.post(this.apiUrl, newProductRequest);
+  }
+
+  deleteProduct(id?: number) {
+    return this.http.delete(`${this.apiUrl}/${id}`);
   }
 }

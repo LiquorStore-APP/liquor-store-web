@@ -27,7 +27,6 @@ export class CatalogueComponent {
 
   constructor(private productsService: ProductsService) {
     this.productsService.getProducts().subscribe(products => {
-      console.log(products);
       this.products = products;
     });
   }

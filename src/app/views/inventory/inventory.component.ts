@@ -72,4 +72,20 @@ export class InventoryComponent {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
+
+  deleteProduct(product: Product) {
+
+    const confirmed = window.confirm(`¿Estás seguro de que quieres eliminar ${product.name}?`);
+    if (confirmed) {
+      this.productsService.deleteProduct(product.id).subscribe(
+        () => {
+          this.loadProducts();
+        },
+        (error) => {
+          console.error('Error al eliminar el producto', error);
+        });
+    }
+
+
+  }
 }

@@ -17,7 +17,6 @@ export class CartService {
   // Obtener el carrito desde la sesión
   getCart(): Cart {
     const cartData = sessionStorage.getItem(this.key);
-    if (cartData) console.log(JSON.parse(cartData));
     return cartData ? JSON.parse(cartData) : { products: [] };
   }
 
