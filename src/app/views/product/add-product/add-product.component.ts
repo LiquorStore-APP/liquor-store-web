@@ -54,6 +54,7 @@ export class AddProductComponent {
           this.router.navigate(['/catalogue']);
         },
         (error) => {
+          this.notificationService.openSnackBar('Error al agregar el producto.', 'Cerrar');
           console.error('Error al agregar el producto', error);
           console.error(newProduct)
         }

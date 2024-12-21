@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {map, Observable} from 'rxjs';
-import {Product, ProductRequest} from '../entities/product';
+import {Product, ProductRequest, ProductResponse} from '../entities/product';
 import {environment} from '../../environments/environment';
 
 @Injectable({
@@ -21,22 +21,23 @@ export class ProductsService {
   }
 
   getProducts(): Observable<Product[]> {
-    return this.http.get<ProductRequest[]>(this.apiUrl).pipe(
-      map((products: ProductRequest[]) =>
-        products.map((product) => this.mapProductRequestToProduct(product))
+    return this.http.get<ProductResponse[]>(this.apiUrl).pipe(
+      map((products: ProductResponse[]) =>
+        products.map((product) => this.mapProductResponseToProduct(product))
       )
     );
   }
 
   // Mapper: convierte Producto a ProductoMapped
-  private mapProductRequestToProduct(producto: ProductRequest): Product {
+  private mapProductResponseToProduct(producto: ProductResponse): Product {
     return {
       id: producto.id,
       name: producto.nombreProducto,
       price: producto.precioProducto,
       stock: producto.stockProducto,
       cost: producto.costoProducto,
-      imageUrl: `images/test.jpg`
+      imageUrl: `images/test.jpg`,
+      category: producto.nombreCategoriaProducto,
       // imageUrl: `images/${producto.rutaimagenProducto}`
     };
   }
@@ -50,7 +51,7 @@ export class ProductsService {
       stockProducto: producto.stock,
       costoProducto: producto.cost,
       rutaimagenProducto: producto.imageUrl,
-      nombreCategoriaProducto: "TEST",
+      idCategoriaProductos: 1,
     };
   }
 
