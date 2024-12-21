@@ -15,6 +15,7 @@ import {NgIf, NgOptimizedImage, NgStyle} from '@angular/common';
 import {CartService} from '../../services/cart.service';
 import {Product} from '../../entities/product';
 import {NotificationService} from '../../services/notification.service';
+import {FormsModule} from '@angular/forms';
 
 @Component({
   selector: 'app-product-card',
@@ -31,7 +32,8 @@ import {NotificationService} from '../../services/notification.service';
     MatButton,
     MatProgressSpinner,
     NgIf,
-    NgStyle
+    NgStyle,
+    FormsModule
   ],
   templateUrl: './product-card.component.html',
   standalone: true,
@@ -42,6 +44,7 @@ export class ProductCardComponent {
   @Output() addToCart = new EventEmitter<number>();
   @Output() removeFromCart = new EventEmitter<void>();
   loading = true;
+  quantity: any = 1;
 
   constructor(private cartService: CartService, private notificationService: NotificationService) {
   }
@@ -49,7 +52,7 @@ export class ProductCardComponent {
   onAddToCart() {
     this.addToCart.emit(1);
 
-    this.cartService.addProduct(this.product, 1, () => {
+    this.cartService.addProduct(this.product, this.quantity, () => {
       this.notificationService.openSnackBarWithTime('Carrito actualizado correctamente.', 'Cerrar', 1500);
     });
   }
@@ -58,8 +61,6 @@ export class ProductCardComponent {
     this.removeFromCart.emit();
   }
   onImageLoad(evt: any) {
-    console.log('Image loaded');
-    console.log(evt);
     this.loading = false;
   }
 }

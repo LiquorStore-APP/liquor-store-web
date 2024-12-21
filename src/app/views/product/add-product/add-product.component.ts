@@ -1,4 +1,4 @@
-import {Component, inject} from '@angular/core';
+import {Component} from '@angular/core';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {ProductsService} from '../../../services/products.service';
 import {Router} from '@angular/router';
@@ -43,7 +43,6 @@ export class AddProductComponent {
       price: ['', [Validators.required, Validators.min(0)]],
       cost: ['', [Validators.required, Validators.min(0)]],
       stock: ['', [Validators.required, Validators.min(1)]],
-      imageUrl: ['', Validators.required],
       image: [null],
     });
   }
@@ -52,17 +51,14 @@ export class AddProductComponent {
     if (this.addProductForm.valid) {
       const newProduct = this.addProductForm.value;
       newProduct.image = this.selectedFile;
-      console.log(newProduct)
       this.productService.addProduct(newProduct).subscribe(
         () => {
           this.notificationService.openSnackBar('Producto agregado exitosamente', 'Cerrar');
-          console.log('Producto agregado exitosamente');
           this.router.navigate(['/catalogue']);
         },
         (error) => {
           this.notificationService.openSnackBar('Error al agregar el producto.', 'Cerrar');
           console.error('Error al agregar el producto', error);
-          console.error(newProduct)
         }
       );
     }
@@ -76,9 +72,7 @@ export class AddProductComponent {
 
       const reader = new FileReader();
       reader.onload = () => {
-        const base64Image = reader.result as string;
-        console.log(base64Image);
-        this.selectedFile = base64Image;
+        this.selectedFile = reader.result as string;
       };
       reader.readAsDataURL(file);
 
