@@ -41,6 +41,9 @@ export class CartService {
           price: product.price,
           quantity: quantity,
           total: product.price * quantity,
+          cost: product.cost,
+          utility: product.price - product.cost,
+          totalUtility: (product.price - product.cost) * quantity,
         }
         cart.products.push(newCartProduct);
       }
