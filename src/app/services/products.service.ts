@@ -2,17 +2,23 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {map, Observable} from 'rxjs';
 import {Product, ProductRequest} from '../entities/product';
+import {environment} from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductsService {
 
-  private baseUrl = 'http://localhost:3000'; // URL base de la API
+  private baseUrl: string; // URL base de la API
 
-  private apiUrl = this.baseUrl + '/products'; // Ruta de la API
+  private apiUrl: string; // Ruta de la API
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+
+      this.baseUrl = environment.apiUrl;
+      this.apiUrl = this.baseUrl + '/products';
+
+  }
 
   getProducts(): Observable<Product[]> {
     return this.http.get<ProductRequest[]>(this.apiUrl).pipe(
@@ -44,7 +50,7 @@ export class ProductsService {
       stockProducto: producto.stock,
       costoProducto: producto.cost,
       rutaimagenProducto: producto.imageUrl,
-      idCategoriaProductos: 1,
+      nombreCategoriaProducto: "TEST",
     };
   }
 

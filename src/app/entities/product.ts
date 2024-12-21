@@ -3,7 +3,7 @@ export interface ProductRequest {
   nombreProducto: string;
   costoProducto: number;
   precioProducto: number;
-  idCategoriaProductos: number;
+  nombreCategoriaProducto: string;
   stockProducto: number;
   rutaimagenProducto: string;
 }

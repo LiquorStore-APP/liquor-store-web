@@ -197,6 +197,15 @@
       "rutaimagenProducto": "asd",
       "idCategoriaProductos": 1,
       "id": 22
+    },
+    {
+      "nombreProducto": "perro",
+      "precioProducto": 12312,
+      "stockProducto": 123123,
+      "costoProducto": 123123,
+      "rutaimagenProducto": "sadjkasd",
+      "idCategoriaProductos": 1,
+      "id": 23
     }
   ],
   "posts": [
@@ -234,12 +243,17 @@
   ],
   "sales": [
     {
-      "idVenta": 1,
-      "clienteVenta": "Juan Pérez",
-      "fechaVenta": "2024-12-15T14:30:00",
-      "montoTotalVenta": 2150.00,
-      "utilidadTotalVenta": 300.00,
-      "idMedioPagoVenta": 1
+      "date": "Thu Dec 19 2024",
+      "id": 1
+    },
+    {
+      "date": "Thu Dec 19 2024",
+      "id": 2
+    },
+    {
+      "date": "Thu Dec 19 2024",
+      "id": 3
     }
-  ]
+  ],
+  "sales_details": []
 }

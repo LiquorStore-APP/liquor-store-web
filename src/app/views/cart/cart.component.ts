@@ -23,6 +23,8 @@ import {RouterLink} from '@angular/router';
 import {CartService} from '../../services/cart.service';
 import {CartProduct} from '../../entities/cart';
 import {FormsModule} from '@angular/forms';
+import {SalesService} from '../../services/sales.service';
+import {NotificationService} from '../../services/notification.service';
 
 @Component({
   selector: 'app-cart',
@@ -53,11 +55,12 @@ import {FormsModule} from '@angular/forms';
   styleUrl: './cart.component.css'
 })
 export class CartComponent {
-  displayedColumns: string[] = ['name','price', 'quantity','total', 'actions'];
+  displayedColumns: string[] = ['name','price', 'cost', 'quantity','total','totalUtility', 'actions'];
   dataSource = new MatTableDataSource<CartProduct>();
   loading = true;
 
-  constructor(private productsService: ProductsService, private cartService: CartService) {}
+  constructor(private notificationsService: NotificationService , private cartService: CartService, private salesService: SalesService) {
+  }
 
   ngOnInit(): void {
     this.loadProducts();
@@ -80,5 +83,26 @@ export class CartComponent {
   deleteProductFromCart(id:any) {
     this.cartService.deleteProduct(id);
     this.loadProducts();
+  }
+
+  saveSale() {
+    this.salesService.addSale(
+      {
+        date: new Date().toDateString(),
+      }
+    ).subscribe(
+      (sale) => {
+        this.notificationsService.openSnackBarWithTime("Venta guardada correctamente.", "Cerrar", 1500);
+        console.log(sale);
+        // this.cartService.getCart().products.forEach(product => {
+        //   this.salesService.addProductToSale(sale.id, product.id, product.quantity).subscribe();
+        // });
+        // this.cartService.clearCart();
+        // this.loadProducts();
+      },
+      (error) => {
+        console.error('Error al agregar el producto', error);
+      }
+    );
   }
 }
