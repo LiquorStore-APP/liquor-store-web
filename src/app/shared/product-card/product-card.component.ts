@@ -52,10 +52,6 @@ export class ProductCardComponent {
     this.cartService.addProduct(this.product, 1, () => {
       this.notificationService.openSnackBarWithTime('Carrito actualizado correctamente.', 'Cerrar', 1500);
     });
-
-
-
-
   }
 
   onRemoveFromCart() {

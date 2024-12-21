@@ -1,7 +1,7 @@
 <div class="container">
   <h2 class="text-center mb-4">Agregar Nuevo Producto</h2>
 
-  <form [formGroup]="addProductForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="addProductForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
     <mat-form-field appearance="fill" class="full-width">
       <mat-label>Nombre</mat-label>
       <input matInput formControlName="name">
@@ -30,6 +30,14 @@
       <mat-label>URL de la Imagen</mat-label>
       <input matInput formControlName="imageUrl">
       <mat-error *ngIf="addProductForm.get('imageUrl')?.invalid">Este campo es obligatorio</mat-error>
+    </mat-form-field>
+
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Select file</mat-label>
+      <input matInput readonly type="text" id="fakeFileInput" (click)="hiddenInput.click()">
+      <input hidden type="file" accept=".jpg, .png, .jpeg" #hiddenInput (change)="GetFileOnLoad($event)">
+      <mat-icon matSuffix>folder_open</mat-icon>
     </mat-form-field>
 
     <button mat-raised-button color="primary" type="submit" [disabled]="addProductForm.invalid">Agregar Producto</button>

@@ -6,6 +6,7 @@ export interface ProductRequest {
   idCategoriaProductos: number;
   stockProducto: number;
   rutaimagenProducto: string;
+  image?: any;
 }
 
 export interface ProductResponse {
@@ -16,6 +17,7 @@ export interface ProductResponse {
   nombreCategoriaProducto: string;
   stockProducto: number;
   rutaimagenProducto: string;
+  image?: any;
 }
 
 
@@ -27,4 +29,5 @@ export interface Product {
   cost: number;
   imageUrl: string;
   category: string;
+  image?: any;
 }

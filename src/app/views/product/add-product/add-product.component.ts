@@ -6,19 +6,21 @@ import {MatError, MatFormField, MatLabel} from '@angular/material/form-field';
 import {MatButton} from '@angular/material/button';
 import {MatInput} from '@angular/material/input';
 import {NgIf} from '@angular/common';
-import {MatSnackBar} from '@angular/material/snack-bar';
 import {NotificationService} from '../../../services/notification.service';
+import {MatIcon, MatIconModule} from '@angular/material/icon';
 
 @Component({
   selector: 'app-add-product',
   imports: [
     ReactiveFormsModule,
+    MatIconModule,
     MatFormField,
     MatButton,
     MatInput,
     NgIf,
     MatError,
-    MatLabel
+    MatLabel,
+    MatIcon
   ],
   templateUrl: './add-product.component.html',
   standalone: true,
@@ -26,6 +28,7 @@ import {NotificationService} from '../../../services/notification.service';
 })
 export class AddProductComponent {
   addProductForm: FormGroup;
+  selectedFile: any;
 
 
 
@@ -40,13 +43,16 @@ export class AddProductComponent {
       price: ['', [Validators.required, Validators.min(0)]],
       cost: ['', [Validators.required, Validators.min(0)]],
       stock: ['', [Validators.required, Validators.min(1)]],
-      imageUrl: ['', Validators.required]
+      imageUrl: ['', Validators.required],
+      image: [null],
     });
   }
 
   onSubmit(): void {
     if (this.addProductForm.valid) {
       const newProduct = this.addProductForm.value;
+      newProduct.image = this.selectedFile;
+      console.log(newProduct)
       this.productService.addProduct(newProduct).subscribe(
         () => {
           this.notificationService.openSnackBar('Producto agregado exitosamente', 'Cerrar');
@@ -59,6 +65,23 @@ export class AddProductComponent {
           console.error(newProduct)
         }
       );
+    }
+  }
+
+  public GetFileOnLoad(event: any) {
+    var file = event.target.files[0];
+    var element = document.getElementById("fakeFileInput") as HTMLInputElement | null;
+    if (element != null && file) {
+      element.value = file?.name;
+
+      const reader = new FileReader();
+      reader.onload = () => {
+        const base64Image = reader.result as string;
+        console.log(base64Image);
+        this.selectedFile = base64Image;
+      };
+      reader.readAsDataURL(file);
+
     }
   }
 }

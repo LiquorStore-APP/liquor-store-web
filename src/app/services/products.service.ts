@@ -38,6 +38,7 @@ export class ProductsService {
       cost: producto.costoProducto,
       imageUrl: `images/test.jpg`,
       category: producto.nombreCategoriaProducto,
+      image: producto.image,
       // imageUrl: `images/${producto.rutaimagenProducto}`
     };
   }
@@ -52,11 +53,14 @@ export class ProductsService {
       costoProducto: producto.cost,
       rutaimagenProducto: producto.imageUrl,
       idCategoriaProductos: 1,
+      image: producto.image,
     };
   }
 
-  addProduct(newProduct: any) {
+  addProduct(newProduct: Product) {
+    console.log(newProduct);
     const newProductRequest = this.mapProductToProductRequest(newProduct);
+    console.log(newProductRequest);
     return this.http.post(this.apiUrl, newProductRequest);
   }
 }
