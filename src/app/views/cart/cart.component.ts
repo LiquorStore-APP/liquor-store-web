@@ -78,6 +78,7 @@ export class CartComponent {
 
   onQuantityChange(element: CartProduct) {
     element.total = element.quantity * element.price;
+    element.totalUtility = element.quantity * element.utility;
   }
 
   deleteProductFromCart(id:any) {
