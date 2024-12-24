@@ -33,6 +33,7 @@ export class CartService {
       if (existingProduct) {
         existingProduct.quantity += quantity;
         existingProduct.total = existingProduct.price * existingProduct.quantity;
+        existingProduct.totalUtility = (existingProduct.price - existingProduct.cost) * existingProduct.quantity;
       } else {
         var newCartProduct: CartProduct = {
           id: product.id,
@@ -58,8 +59,8 @@ export class CartService {
   }
 
   clearCart(): void {
-    this.updateCartItemCount()
     sessionStorage.removeItem(this.key);
+    this.updateCartItemCount()
   }
 
   getCartItemCount(): Observable<number> {

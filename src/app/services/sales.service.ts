@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {map, Observable} from 'rxjs';
-import {Sale} from '../entities/sale';
+import {Sale, SaleRequest} from '../entities/sale';
 import {environment} from '../../environments/environment';
 
 @Injectable({
@@ -18,7 +18,7 @@ export class SalesService {
     this.apiUrl = this.baseUrl + '/sales';
 }
 
-  addSale(sale: Sale): Observable<Sale> {
+  addSale(sale: SaleRequest): Observable<Sale> {
     return this.http.post<Sale>(this.apiUrl, sale);
   }
 

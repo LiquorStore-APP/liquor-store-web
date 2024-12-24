@@ -1,0 +1,11 @@
+table {
+  width: 100%;
+}
+
+button {
+  margin: 5px;
+}
+
+.mat-elevation-z8 {
+  margin-top: 20px;
+}

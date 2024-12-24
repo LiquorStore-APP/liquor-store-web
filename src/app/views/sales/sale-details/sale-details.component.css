@@ -1,0 +1,23 @@
+table {
+  width: 100%;
+  overflow-x: auto; /* Permite desplazamiento horizontal solo si es necesario */
+}
+
+.mat-dialog-content {
+  padding: 0; /* Reduce el padding para evitar espacio innecesario */
+}
+
+.mat-dialog-container {
+  width: auto !important; /* Asegúrate de que el diálogo no tenga restricciones de ancho */
+}
+
+.mat-header-row,
+.mat-row {
+  display: flex;
+}
+
+.mat-cell,
+.mat-header-cell {
+  flex: 1; /* Hacer que las celdas ocupen el mismo ancho */
+  text-align: center; /* Opcional: Centrar el texto */
+}
