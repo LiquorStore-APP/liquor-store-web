@@ -19,7 +19,7 @@ import {MatProgressSpinner} from '@angular/material/progress-spinner';
 import {NgIf} from '@angular/common';
 import {MatIcon} from '@angular/material/icon';
 import {MatButton, MatIconButton} from '@angular/material/button';
-import {RouterLink} from '@angular/router';
+import {Router, RouterLink} from '@angular/router';
 import {CartService} from '../../services/cart.service';
 import {CartProduct} from '../../entities/cart';
 import {FormsModule} from '@angular/forms';
@@ -59,7 +59,9 @@ export class CartComponent {
   dataSource = new MatTableDataSource<CartProduct>();
   loading = true;
 
-  constructor(private notificationsService: NotificationService , private cartService: CartService, private salesService: SalesService) {
+  constructor(private notificationsService: NotificationService , private cartService: CartService, private salesService: SalesService, private router: Router) {
+    this.dataSource.data = this.cartService.getCart().products;
+    this.loading = false;
   }
 
   ngOnInit(): void {
@@ -78,7 +80,7 @@ export class CartComponent {
 
   onQuantityChange(element: CartProduct) {
     element.total = element.quantity * element.price;
-    element.totalUtility = element.quantity * element.utility;
+    element.totalUtility = element.quantity * (element.price - element.cost);
   }
 
   deleteProductFromCart(id:any) {
@@ -89,11 +91,28 @@ export class CartComponent {
   saveSale() {
     this.salesService.addSale(
       {
-        date: new Date().toDateString(),
+        fechaVenta: new Date().toISOString(),
+        idMedioPagoVenta: 1,
+        nombreCliente: "Cliente 1",
+        montoTotalVenta: this.dataSource.data.reduce((total, p) => (total + p.total) * p.quantity, 0),
+        utilidadTotalVenta: this.dataSource.data.reduce((total, p) => (total + p.totalUtility) * p.quantity, 0),
+        detalleVenta: this.dataSource.data.map(product => {
+          return {
+            productoDetalleVenta: product.name,
+            cantidadDetalleVenta: product.quantity,
+            precioDetalleVenta: product.price,
+            subutilidadDetalleVenta: product.totalUtility,
+            subTotalDetalleVenta: product.total
+          };
+        })
       }
     ).subscribe(
       (sale) => {
-        this.notificationsService.openSnackBarWithTime("Venta guardada correctamente.", "Cerrar", 1500);
+        this.router.navigate(['/sales']).then(() => {
+          this.notificationsService.openSnackBarWithTime("Venta guardada correctamente.", "Cerrar", 1500);
+          this.cartService.clearCart();
+        });
+
 
         // this.cartService.getCart().products.forEach(product => {
         //   this.salesService.addProductToSale(sale.id, product.id, product.quantity).subscribe();
